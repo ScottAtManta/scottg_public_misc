@@ -1,0 +1,152 @@
+scott@scott2:~/graaltest/Light$ time native-image --native-image-info --verbose --no-fallback --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces -Djava.awt.headless=false Light
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/jni-config.json
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/reflect-config.json
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/resource-config.json
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/proxy-config.json
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/serialization-config.json
+Apply file:///home/scott/graaltest/Light/META-INF/native-image/predefined-classes-config.json
+Executing [
+/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/bin/java \
+-XX:+UseParallelGC \
+-XX:+UnlockExperimentalVMOptions \
+-XX:+EnableJVMCI \
+-Dtruffle.TrustAllTruffleRuntimeProviders=true \
+-Dtruffle.TruffleRuntime=com.oracle.truffle.api.impl.DefaultTruffleRuntime \
+-Dgraalvm.ForcePolyglotInvalid=true \
+-Dgraalvm.locatorDisabled=true \
+-Dsubstratevm.IgnoreGraalVersionCheck=true \
+--add-exports=java.base/com.sun.crypto.provider=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.event=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.loader=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.logger=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.module=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.org.xml.sax.helpers=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.perf=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.ref=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.util.xml.impl=ALL-UNNAMED \
+--add-exports=java.base/jdk.internal.util.xml=ALL-UNNAMED \
+--add-exports=java.base/sun.invoke.util=ALL-UNNAMED \
+--add-exports=java.base/sun.nio.ch=ALL-UNNAMED \
+--add-exports=java.base/sun.reflect.annotation=ALL-UNNAMED \
+--add-exports=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED \
+--add-exports=java.base/sun.reflect.generics.repository=ALL-UNNAMED \
+--add-exports=java.base/sun.reflect.generics.tree=ALL-UNNAMED \
+--add-exports=java.base/sun.security.jca=ALL-UNNAMED \
+--add-exports=java.base/sun.security.provider=ALL-UNNAMED \
+--add-exports=java.base/sun.security.util=ALL-UNNAMED \
+--add-exports=java.base/sun.text.spi=ALL-UNNAMED \
+--add-exports=java.base/sun.util.calendar=ALL-UNNAMED \
+--add-exports=java.base/sun.util.locale.provider=ALL-UNNAMED \
+--add-exports=java.base/sun.util.resources=ALL-UNNAMED \
+--add-exports=java.xml.crypto/org.jcp.xml.dsig.internal.dom=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.aarch64=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.amd64=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.site=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.stack=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.code=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.common=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.aarch64=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.amd64=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.sparc=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.meta=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.runtime=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.services=ALL-UNNAMED \
+--add-exports=jdk.internal.vm.ci/jdk.vm.ci.sparc=ALL-UNNAMED \
+--add-exports=jdk.jfr/jdk.jfr.events=ALL-UNNAMED \
+--add-exports=jdk.jfr/jdk.jfr.internal.consumer=ALL-UNNAMED \
+--add-exports=jdk.jfr/jdk.jfr.internal.handlers=ALL-UNNAMED \
+--add-exports=jdk.jfr/jdk.jfr.internal.jfc=ALL-UNNAMED \
+--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED \
+-XX:+UseJVMCINativeLibrary \
+-Xss10m \
+-Xms1g \
+-Xmx14g \
+-Duser.country=US \
+-Duser.language=en \
+-Djava.awt.headless=true \
+-Dorg.graalvm.version=21.3.0-dev \
+-Dorg.graalvm.config=CE \
+-Dcom.oracle.graalvm.isaot=true \
+-Djava.system.class.loader=com.oracle.svm.hosted.NativeImageSystemClassLoader \
+-Dawt.toolkit=sun.awt.X11.XToolkit \
+-Djava.awt.graphicsenv=sun.awt.X11GraphicsEnvironment \
+-Djava.awt.printerjob=sun.print.PSPrinterJob \
+-Xshare:off \
+--module-path \
+/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/truffle/truffle-api.jar \
+-Djdk.internal.lambda.disableEagerInitialization=true \
+-Djdk.internal.lambda.eagerlyInitialize=false \
+-Djava.lang.invoke.InnerClassLambdaMetafactory.initializeLambdas=false \
+-Djava.awt.headless=false \
+-javaagent:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/svm.jar \
+-cp \
+/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/javacpp-shadowed.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/llvm-platform-specific-shadowed.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/llvm-wrapper-shadowed.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/objectfile.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/pointsto.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/svm-llvm.jar:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/builder/svm.jar \
+'com.oracle.svm.hosted.NativeImageGeneratorRunner$JDK9Plus' \
+-watchpid \
+4608 \
+-imagecp \
+/home/scott/graaltest/Light:/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/library-support.jar \
+-H:Path=/home/scott/graaltest/Light \
+-H:+DumpTargetInfo \
+-H:FallbackThreshold=0 \
+-H:+ReportUnsupportedElementsAtRuntime \
+-H:+ReportExceptionStackTraces \
+-H:CLibraryPath=/mnt/j/doble/Stingray/graal/graalvm-ce-java11-21.3.0-dev/lib/svm/clibraries/linux-amd64 \
+-H:JNIConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/jni-config.json=META-INF/native-image/jni-config.json \
+-H:ReflectionConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/reflect-config.json=META-INF/native-image/reflect-config.json \
+-H:ResourceConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/resource-config.json=META-INF/native-image/resource-config.json \
+-H:DynamicProxyConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/proxy-config.json=META-INF/native-image/proxy-config.json \
+-H:SerializationConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/serialization-config.json=META-INF/native-image/serialization-config.json \
+-H:PredefinedClassesConfigurationResources@file:///home/scott/graaltest/Light/META-INF/native-image/predefined-classes-config.json=META-INF/native-image/predefined-classes-config.json \
+'-H:Class@explicit main-class=Light' \
+'-H:Name@main-class lower case as image name=light'
+]
+[light:4627]    classlist:   2,213.91 ms,  0.96 GB
+[light:4627]        (cap):   1,964.57 ms,  0.96 GB
+[light:4627]        setup:   4,855.60 ms,  0.96 GB
+# Printing compilation-target information to: /home/scott/graaltest/Light/reports/target_info_20210811_182150.txt
+[light:4627]     (clinit):     730.79 ms,  5.97 GB
+# Printing native-library information to: /home/scott/graaltest/Light/reports/native_library_info_20210811_182239.txt
+[light:4627]   (typeflow):  28,974.70 ms,  5.97 GB
+[light:4627]    (objects):  16,335.26 ms,  5.97 GB
+[light:4627]   (features):   1,537.34 ms,  5.97 GB
+[light:4627]     analysis:  49,140.39 ms,  5.97 GB
+[light:4627]     universe:   2,482.01 ms,  5.97 GB
+[light:4627]      (parse):   2,096.64 ms,  5.97 GB
+[light:4627]     (inline):   4,372.51 ms,  6.01 GB
+[light:4627]    (compile):  25,021.24 ms,  5.93 GB
+[light:4627]      compile:  33,736.69 ms,  5.93 GB
+[light:4627]        image:   3,193.97 ms,  5.93 GB
+[light:4627]        write:   1,781.17 ms,  5.93 GB
+[light:4627]      [total]:  97,873.84 ms,  5.93 GB
+# Printing build artifacts to: /home/scott/graaltest/Light/light.build_artifacts.txt
+
+real    1m40.710s
+user    11m34.281s
+sys     0m53.281s
+scott@scott2:~/graaltest/Light$ ls -l light
+-rwxr-xr-x 1 scott scott 35298136 Aug 11 18:23 light
+scott@scott2:~/graaltest/Light$ ldd light
+        linux-vdso.so.1 (0x00007fffcb5f4000)
+        libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x00007f38585c0000)
+        libXrender.so.1 => /usr/lib/x86_64-linux-gnu/libXrender.so.1 (0x00007f38583b0000)
+        libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x00007f3858190000)
+        libXi.so.6 => /usr/lib/x86_64-linux-gnu/libXi.so.6 (0x00007f3857f80000)
+        libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f3857bf0000)
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f3857850000)
+        libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f3857630000)
+        libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f3857420000)
+        libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f3857200000)
+        librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f3856ff0000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f3856dd0000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f38569d0000)
+        libxcb.so.1 => /usr/lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f3856790000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f385ae00000)
+        libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x00007f3856580000)
+        libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f3856370000)
+        libbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007f3856150000)
+scott@scott2:~/graaltest/Light$ ./light
+scott@scott2:~/graaltest/Light$ 
